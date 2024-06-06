@@ -3,6 +3,11 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-resource "aws_s3_bucket" "example_bucket" {
-  bucket = "mana-bucket"
-}  
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
