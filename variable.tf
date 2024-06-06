@@ -4,7 +4,7 @@ variable "instance_type" {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket-${random_id.unique_id.hex}"
+  bucket = "my-tf-test-bucket"
   acl    = "private"
   
 
