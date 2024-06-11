@@ -3,7 +3,7 @@ name: Terraform Destroy
 on:
   push:
     branches:
-      - main
+      - mana
 
 jobs:
   terraform_destroy:
