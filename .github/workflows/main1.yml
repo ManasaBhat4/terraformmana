@@ -34,8 +34,7 @@ jobs:
       - name: Apply Terraform Changes
         run: terraform apply -auto-approve
 
-
-        - name: Delay before Destroy
+      - name: Delay before Destroy
         run: |
           echo "Waiting for 1 minute before destroying..."
           sleep 60
