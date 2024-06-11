@@ -4,13 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       terraform_action:
-        type :Choice
         description: 'Action to perform with Terraform'
-        options:
-          - plan
-          - apply
-          - destroy
         required: true
+        default: 'plan'
   push:
     branches:
       - master
@@ -35,9 +31,6 @@ jobs:
           aws-region: us-east-2
       
       - name: Initialize Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 1.0.0
         run: terraform init
       
       - name: Plan Terraform Changes
@@ -46,10 +39,6 @@ jobs:
       - name: Apply Terraform Changes
         if: github.event.inputs.terraform_action == 'apply'
         run: terraform apply -auto-approve
-
-      - name: Destroy Terraform Changes
-        if: github.event.inputs.terraform_action == 'apply'
-        run: terraform apply -auto-approve  
 
 
 
